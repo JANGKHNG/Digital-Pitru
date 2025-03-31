@@ -7,7 +7,7 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
-      - key: OPENAI_API_KEY
-        value: your_openai_key_here
-      - key: 
-        value: your_elevenlabs_key_here
+      - key: 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
+        value: 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
+      - key: sk_a3426e16f7179c119590388cad48b39eb2a1c78e9415c6b8
+        value: sk_a3426e16f7179c119590388cad48b39eb2a1c78e9415c6b8
