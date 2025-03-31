@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Pitru - अपने पूर्वजों से बात करें</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        #chatBox { border: 1px solid #ddd; padding: 10px; height: 300px; overflow-y: scroll; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>🔮 Digital Pitru</h1>
+    <p>अपने पूर्वजों से AI के माध्यम से बातचीत करें</p>
+    
+    <select id="personSelect">
+        {% for person in persons %}
+            <option value="{{ person }}">{{ person|title }}</option>
+        {% endfor %}
+    </select>
+    
+    <input type="text" id="messageInput" placeholder="अपना संदेश लिखें...">
+    <button onclick="sendMessage()">भेजें</button>
+    
+    <div id="chatBox"></div>
+    
+    <script>
+        async function sendMessage() {
+            const person = document.getElementById("personSelect").value;
+            const message = document.getElementById("messageInput").value;
+            
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ person, message })
+            });
+            
+            const data = await response.json();
+            document.getElementById("chatBox").innerHTML += `
+                <p><strong>आप:</strong> ${message}</p>
+                <p><strong>${person}:</strong> ${data.text}</p>
+                <hr>
+            `;
+        }
+    </script>
+</body>
+</html>
