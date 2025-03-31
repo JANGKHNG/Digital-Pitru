@@ -9,7 +9,7 @@ load_dotenv()  # .env फाइल से variables लोड करेगा
 app = Flask(__name__)
 
 # APIs कॉन्फ़िगर करें
-openai.api_key = os.getenv("OPENAI_KEY")
+openai.api_key = os.getenv("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")
 elevenlabs.set_api_key(os.getenv("ELEVENLABS_KEY"))
 
 # नमूना डेटाबेस
