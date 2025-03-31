@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # APIs कॉन्फ़िगर करें
 openai.api_key = os.getenv("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")
-elevenlabs.set_api_key(os.getenv("ELEVENLABS_KEY"))
+elevenlabs.set_api_key(os.getenv("sk_a3426e16f7179c119590388cad48b39eb2a1c78e9415c6b8"))
 
 # नमूना डेटाबेस
 DEAD_DB = {
